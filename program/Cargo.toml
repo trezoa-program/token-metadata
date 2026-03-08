@@ -1,0 +1,33 @@
+[package]
+name = "tpl-token-metadata-example"
+version = "0.3.0"
+description = "Trezoa Program Library Token Metadata Example Program"
+documentation = "https://docs.rs/tpl-token-metadata-example"
+authors = { workspace = true }
+repository = { workspace = true }
+homepage = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
+
+[features]
+no-entrypoint = []
+
+[dependencies]
+trezoa-program = "3.0.0"
+tpl-token-2022 = { version = "10.0.0", features = ["no-entrypoint"] }
+tpl-token-metadata-interface = { version = "0.8.0", path = "../interface" }
+tpl-type-length-value = "0.9.0"
+tpl-pod = "0.7.0"
+
+[dev-dependencies]
+trezoa-program-test = { version = "3.1.8", features = ["trezoa-unstable-api"] }
+trezoa-sdk = "3.0.0"
+trezoa-system-interface = "2"
+tpl-token-client = { version = "0.18.0", features = ["dev-context-only-utils"] }
+test-case = "3.3"
+
+[lib]
+crate-type = ["cdylib"]
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]

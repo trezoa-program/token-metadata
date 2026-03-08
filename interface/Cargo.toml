@@ -1,0 +1,39 @@
+[package]
+name = "tpl-token-metadata-interface"
+version = "0.8.0"
+description = "Trezoa Program Library Token Metadata Interface"
+documentation = "https://docs.rs/tpl-token-metadata-interface"
+authors = { workspace = true }
+repository = { workspace = true }
+homepage = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
+
+[features]
+serde-traits = ["dep:serde", "tpl-pod/serde-traits"]
+
+[dependencies]
+borsh = "1.5.7"
+num-derive = "0.4"
+num-traits = "0.2"
+num_enum = "0.7"
+serde = { version = "1.0.219", optional = true }
+trezoa-borsh = "3.0.0"
+trezoa-instruction = "3.0.0"
+trezoa-program-error = { version = "3.0.0", features = ["borsh"] }
+trezoa-pubkey = { version = "3.0.0", features = ["borsh"] }
+tpl-discriminator = "0.5.0"
+tpl-type-length-value = "0.9.0"
+tpl-pod = { version = "0.7.0", features = ["borsh"] }
+thiserror = "2.0"
+
+[dev-dependencies]
+serde_json = "1.0.143"
+trezoa-sha256-hasher = "3.0.0"
+tpl-token-metadata-interface = { path = ".", features = ["serde-traits"] }
+
+[lib]
+crate-type = ["lib"]
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
